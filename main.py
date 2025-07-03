@@ -1,7 +1,13 @@
+from fastapi import FastAPI, Request
+from analyzer import analyze_pgn
+
+# Aquí definimos la aplicación FastAPI
+app = FastAPI()
+
+# Ahora puedes usar el decorador correctamente
 @app.post("/analyze-pgn")
 async def analyze_pgn_route(request: Request):
-    # Aquí no debe haber redirección
-    data = await request.json()
+    data = await request.json()  # Deserializamos el JSON
     pgn = data.get("pgn")
     depth = int(data.get("depth", 15))
 
