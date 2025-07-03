@@ -1,14 +1,7 @@
-from fastapi import FastAPI, Request
-from analyzer import analyze_pgn
-
-app = FastAPI()
-
 @app.post("/analyze-pgn")
 async def analyze_pgn_route(request: Request):
-    # Aquí debería obtener el JSON correctamente
+    # Aquí no debe haber redirección
     data = await request.json()
-    
-    # Ahora 'data' será un diccionario y podemos usar .get() para acceder a "pgn"
     pgn = data.get("pgn")
     depth = int(data.get("depth", 15))
 
