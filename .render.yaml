@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: stockfish-api
+    env: docker
+    plan: free
+    autoDeploy: true
